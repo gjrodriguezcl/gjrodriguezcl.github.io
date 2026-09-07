@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gonzalo Rodríguez · Portafolios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #30363d;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #f0883e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .section {
+            margin: 2.5rem 0;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            color: #58a6ff;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .card .tecnologias {
+            display: inline-block;
+            background: #21262d;
+            color: #8b949e;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.5rem 0.3rem 0 0;
+        }
+        .card p {
+            color: #c9d1d9;
+            margin: 0.5rem 0 0.8rem;
+        }
+        .card a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            background: #238636;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.6rem;
+            border-radius: 12px;
+            margin-left: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .contacto {
+            margin-top: 1rem;
+        }
+        .contacto a {
+            color: #f0f6fc;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-size: 1.1rem;
+        }
+        .contacto a:hover {
+            color: #58a6ff;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>🚀 Gonzalo Rodríguez</h1>
+            <p class="subtitle">Automatización · Python · Batch · Scripting</p>
+        </header>
+
+        <!-- Sobre mí -->
+        <section class="section">
+            <h2>👨‍💻 Sobre mí</h2>
+            <div class="card">
+                <p>Desarrollador y automatizador con experiencia en <strong>Python</strong> para lógica compleja y <strong>Batch/PowerShell</strong> para orquestación de sistemas Windows. Me apasiona crear soluciones que ahorren tiempo y reduzcan errores manuales.</p>
+            </div>
+        </section>
+
+        <!-- Proyectos Python -->
+        <section class="section">
+            <h2>🐍 Proyectos Python</h2>
+
+            <div class="card">
+                <h3>Bot de Alertas Financieras</h3>
+                <span class="tecnologias">Python</span>
+                <span class="tecnologias">requests</span>
+                <span class="tecnologias">asyncio</span>
+                <span class="badge">En desarrollo</span>
+                <p>Bot que monitorea precios de acciones y envía alertas por Telegram cuando superan ciertos umbrales.</p>
+                <a href="#">Ver repositorio →</a>
+            </div>
+
+            <div class="card">
+                <h3>ETL de Datos Climatológicos</h3>
+                <span class="tecnologias">Python</span>
+                <span class="tecnologias">pandas</span>
+                <span class="tecnologias">sqlite3</span>
+                <p>Extrae datos históricos de una API meteorológica, los limpia y los almacena en una base de datos para análisis posterior.</p>
+                <a href="#">Ver repositorio →</a>
+            </div>
+        </section>
+
+        <!-- Scripts Batch -->
+        <section class="section">
+            <h2>⚙️ Scripts Batch / PowerShell</h2>
+
+            <div class="card">
+                <h3>Instalador Automático de Entorno</h3>
+                <span class="tecnologias">Batch</span>
+                <span class="tecnologias">PowerShell</span>
+                <p>Script que instala automáticamente las herramientas necesarias (Python, Git, VS Code) y configura variables de entorno en equipos nuevos.</p>
+                <a href="#">Ver repositorio →</a>
+            </div>
+
+            <div class="card">
+                <h3>Limpieza de Archivos Temporales</h3>
+                <span class="tecnologias">Batch</span>
+                <span class="tecnologias">PowerShell</span>
+                <p>Automatiza la eliminación de logs antiguos, cachés y archivos temporales para liberar espacio en servidores Windows.</p>
+                <a href="#">Ver repositorio →</a>
+            </div>
+        </section>
+
+        <!-- Scripts Mixtos -->
+        <section class="section">
+            <h2>🔗 Scripts Híbridos (Python + Batch)</h2>
+
+            <div class="card">
+                <h3>Orquestador de Tareas</h3>
+                <span class="tecnologias">Python</span>
+                <span class="tecnologias">Batch</span>
+                <span class="tecnologias">subprocess</span>
+                <p>Un script Python que ejecuta múltiples scripts Batch en paralelo y genera un reporte unificado de resultados y errores.</p>
+                <a href="#">Ver repositorio →</a>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <footer>
+            <p>📌 ¿Hablamos?</p>
+            <div class="contacto">
+                <a href="mailto:tuemail@ejemplo.com">📧 Email</a>
+                <a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a>
+                <a href="https://github.com/gjrodriguezcl" target="_blank">🐙 GitHub</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.8rem;">Hecho con 💻 y ☕ · 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
