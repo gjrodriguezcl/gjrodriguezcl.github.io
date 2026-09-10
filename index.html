@@ -3,129 +3,239 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gilberto José Rodríguez · Portafolios</title>
+    <title>Gilberto José Rodríguez Peña | Técnico en Informática & Especialista en Soporte</title>
+    <!-- Importar fuente Inter desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+            --accent-color: #0056b3;
+            --accent-hover: #003d82;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
             padding: 2rem 1rem;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
+
+        /* --- Header --- */
         header {
             text-align: center;
             padding: 3rem 0 2rem;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid var(--border-color);
         }
+
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #58a6ff, #f0883e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
+
         .subtitle {
-            color: #8b949e;
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
         }
+
+        .header-actions {
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- Sections --- */
         .section {
-            margin: 2.5rem 0;
+            margin: 3rem 0;
         }
+
         .section h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: #f0f6fc;
-            border-bottom: 2px solid #30363d;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
+
+        /* --- Cards --- */
         .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 1.5rem;
-            margin-bottom: 1.2rem;
-            transition: transform 0.2s, border-color 0.2s;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
         .card:hover {
-            border-color: #58a6ff;
             transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
+
         .card h3 {
-            color: #58a6ff;
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
         }
-        .card .tecnologias {
-            display: inline-block;
-            background: #21262d;
-            color: #8b949e;
-            font-size: 0.8rem;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            margin: 0.5rem 0.3rem 0 0;
-        }
-        .card p {
-            color: #c9d1d9;
-            margin: 0.5rem 0 0.8rem;
-        }
-        .card a {
-            color: #58a6ff;
-            text-decoration: none;
+
+        .card .meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
             font-weight: 500;
+            margin-bottom: 0.8rem;
         }
-        .card a:hover {
-            text-decoration: underline;
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
         }
-        .badge {
-            display: inline-block;
-            background: #238636;
-            color: #fff;
-            font-size: 0.7rem;
-            padding: 0.1rem 0.6rem;
-            border-radius: 12px;
-            margin-left: 0.5rem;
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0.8rem;
         }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- Technologies Tags --- */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .tech-tag {
+            background-color: #e9ecef;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+        }
+
+        /* --- Grid for Projects/Skills --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid #30363d;
-            color: #8b949e;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
-        footer a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-        .contacto {
-            margin-top: 1rem;
-        }
-        .contacto a {
-            color: #f0f6fc;
+
+        .contact-links a {
+            color: var(--accent-color);
             text-decoration: none;
             margin: 0 0.8rem;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
         }
-        .contacto a:hover {
-            color: #58a6ff;
+
+        .contact-links a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
+
+        .qr-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qr-container img {
+            width: 120px;
+            height: 120px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 5px;
+            background: #fff;
+        }
+
+        .qr-container p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Responsive --- */
         @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
             }
             .container {
                 padding: 0 0.5rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -135,62 +245,164 @@
     <div class="container">
 
         <header>
-            <h1>🚀 Gilberto José Rodríguez</h1>
-            <p class="subtitle">Automatización · Python · Batch · Scripting</p>
+            <h1>Gilberto José Rodríguez Peña</h1>
+            <p class="subtitle">Técnico Superior en Informática | Especialista en Soporte y Atención al Cliente | Residente definitivo en Chile</p>
         </header>
 
         <!-- Sobre mí -->
         <section class="section">
-            <h2>👨‍💻 Sobre mí</h2>
+            <h2>Sobre mí</h2>
             <div class="card">
-                <p>Desarrollador y automatizador en <strong>Python</strong> para lógica compleja y <strong>Batch/PowerShell</strong> para orquestación de sistemas Windows. Me apasiona crear soluciones que ahorren tiempo y reduzcan errores manuales.</p>
+                <p>Profesional con más de 15 años de experiencia en atención al cliente presencial, telefónica y remota; destacando por mi capacidad para generar confianza, resolver problemas con rapidez y mantener una comunicación clara y efectiva, incluso en situaciones de alta presión.</p>
+                <p>He trabajado en entornos de call center, retail, servicio al cliente especializado (clientes electrodependientes) y administración, lo que me ha permitido desarrollar una visión integral del ciclo de atención (desde la primera interacción hasta la gestión de reclamos, ventas, post-venta y seguimiento).</p>
+                <p>Soy una persona proactiva, empática y ordenada, con facilidad para adaptarme a distintos rubros y públicos. Mi formación técnica me otorga una ventaja adicional para comprender distintos productos y servicios, en especial con componentes tecnológicos; y mi experiencia en reposición y caja me permite desempeñarme sin dificultad en entornos comerciales.</p>
             </div>
         </section>
 
-        <!-- Proyectos Python -->
+        <!-- Experiencia Profesional -->
         <section class="section">
-            <h2>🐍 Proyectos Python</h2>
+            <h2>Experiencia Profesional</h2>
 
             <div class="card">
-                <h3>Instagram Blocker</h3>
-                <span class="tecnologias">Python</span>
-                <span class="tecnologias">requests</span>
-                <span class="tecnologias">asyncio</span>
-                <span class="badge">Publicado</span>
-                <p>Bloqueador de Instagram para Windows – Una herramienta sencilla y efectiva para controlar el acceso a Instagram modificando el archivo hosts del sistema.</p>
-                <a href="https://github.com/gjrodriguezcl/instagram-blocker">Ver repositorio →</a>
+                <h3>Ali Store Ltda.</h3>
+                <p class="meta">Valparaíso | Atención al cliente, Cajero, Reposición | Enero 2026 - Julio 2026</p>
+                <ul>
+                    <li>Atención al cliente, manejo de caja y reposición de productos.</li>
+                </ul>
             </div>
 
             <div class="card">
-                <h3>Turtle</h3>
-                <span class="tecnologias">Python</span>
-                <span class="tecnologias">requests</span>
-                <span class="tecnologias">asyncio</span>
-                <span class="badge">Publicado</span>
-                <p>Herramienta educativa para niños que enseña programación visual usando Python y Turtle. Con comandos simples en español, los niños pueden dibujar, colorear y crear animaciones.</p>
-                <a href="https://github.com/gjrodriguezcl/Turtle">Ver repositorio →</a>
+                <h3>Tropicalisimo</h3>
+                <p class="meta">Valparaíso | Atención al cliente | Noviembre 2025 - Enero 2026</p>
+                <ul>
+                    <li>Atención al cliente, manejo de caja y preparación de alimentos y bebidas.</li>
+                </ul>
             </div>
 
             <div class="card">
-                <h3>Agenda Personal</h3>
-                <span class="tecnologias">Python</span>
-                <span class="tecnologias">requests</span>
-                <span class="tecnologias">asyncio</span>
-                <span class="badge">Publicado</span>
-                <p>Una aplicación de gestión de agenda desarrollada en Python que permite administrar tareas, eventos, cumpleaños y feriados con soporte para repeticiones y seguimiento de progreso.</p>
-                <a href="https://github.com/gjrodriguezcl/agenda_personal">Ver repositorio →</a>
+                <h3>GR Dual Technologies SPA</h3>
+                <p class="meta">Valparaíso | Atención al cliente, Ventas | Julio 2024 - Octubre 2025</p>
+                <ul>
+                    <li>Soporte técnico y venta de productos y servicios informáticos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Teleperformance</h3>
+                <p class="meta">Santiago (Teletrabajo) | Ejecutivo de Atención al Cliente | Septiembre 2021 - Mayo 2024</p>
+                <ul>
+                    <li>Gestión integral de clientes para PC Factory: atención de consultas, reclamos, soporte técnico telefónico y ventas post-venta de productos y servicios informáticos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>CGS</h3>
+                <p class="meta">Valparaíso (Híbrido) | Ejecutivo de Atención al Cliente y Back Office | Diciembre 2017 - Agosto 2021</p>
+                <ul>
+                    <li>Atención especializada a clientes, con enfoque en clientes electrodependientes y en situación de emergencia.</li>
+                    <li>Coordinación con equipos técnicos para asegurar la autonomía de equipos vitales, realizando monitoreo constante hasta la resolución del problema.</li>
+                    <li>Revisión y gestión de documentos para la instalación de nuevos servicios eléctricos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Transportes JH</h3>
+                <p class="meta">Viña del Mar | Analista y Administración | Julio 2017 - Octubre 2017</p>
+                <ul>
+                    <li>Gestión del ciclo completo de facturación para el cliente Falabella, incluyendo análisis, revisión y cobro de servicios en la V Región.</li>
+                    <li><strong>Logro clave:</strong> Lideré la optimización de los procesos contables, reemplazando el uso de hojas de cálculo por una aplicación web, lo que resultó en una reducción del 80% en errores de facturación y una mayor eficiencia en el procesamiento de datos.</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Contacto -->
-        <footer>
-            <p>📌 ¿Hablamos?</p>
-            <div class="contacto">
-                <a href="mailto:tuemail@ejemplo.com">📧 Email</a>
-                <a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a>
-                <a href="https://github.com/gjrodriguezcl" target="_blank">🐙 GitHub</a>
+        <!-- Proyectos -->
+        <section class="section">
+            <h2>Proyectos Personales en Programación</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Instagram Blocker</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">requests</span>
+                        <span class="tech-tag">asyncio</span>
+                    </div>
+                    <p>Bloqueador de Instagram para Windows – Una herramienta sencilla y efectiva para controlar el acceso a Instagram modificando el archivo hosts del sistema.</p>
+                    <a href="https://github.com/gjrodriguezcl/instagram-blocker" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Turtle</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Turtle</span>
+                    </div>
+                    <p>Herramienta educativa para niños que enseña programación visual usando Python y Turtle. Con comandos simples en español, los niños pueden dibujar, colorear y crear animaciones.</p>
+                    <a href="https://github.com/gjrodriguezcl/Turtle" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Agenda Personal</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Gestión de Datos</span>
+                    </div>
+                    <p>Una aplicación de gestión de agenda desarrollada en Python que permite administrar tareas, eventos, cumpleaños y feriados con soporte para repeticiones y seguimiento de progreso.</p>
+                    <a href="https://github.com/gjrodriguezcl/agenda_personal" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
+                </div>
             </div>
-            <p style="margin-top: 1.5rem; font-size: 0.8rem;">Hecho con 💻 y ☕ · 2026</p>
+        </section>
+
+        <!-- Educación y Cursos -->
+        <section class="section">
+            <h2>Educación y Formación</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Educación Formal</h3>
+                    <ul>
+                        <li><strong>Técnico Superior Universitario en Informática</strong> | IUTA, Venezuela (2004 - 2007)</li>
+                        <li><strong>Técnico Medio en Comercio y Servicios Administrativos, Mención Informática</strong> | U.E. Fe y Alegría, Venezuela (2003)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Cursos y Certificaciones</h3>
+                    <ul>
+                        <li>Fundamentos del teletrabajo | LinkedIn Learning | Marzo 2025</li>
+                        <li>Sé el manager que nadie quiere dejar | LinkedIn Learning | Marzo 2025</li>
+                        <li>IA aplicada para aprendizaje y desarrollo | LinkedIn Learning | Marzo 2025</li>
+                        <li>Ventas e Inventario | Ruta Digital | Junio 2025</li>
+                        <li>Marketing Digital | Ruta Digital | Junio 2025</li>
+                        <li>Neuromarketing y delivery | Ruta Digital | Junio 2025</li>
+                        <li>Habilidades para el Desarrollo Profesional | Sence | Noviembre 2024</li>
+                        <li>Guía para Entrevistas de Trabajo Exitosas | Sence | Octubre 2024</li>
+                        <li>Soporte IT: Trucos | LinkedIn Learning | Marzo 2025</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Idiomas</h3>
+                    <ul>
+                        <li><strong>Español:</strong> Nativo</li>
+                        <li><strong>Inglés:</strong> Básico</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer con contacto y QR -->
+        <footer>
+            <p>¿Hablamos?</p>
+            <div class="contact-links" style="margin-top: 1rem;">
+                <!-- He eliminado el email y teléfono por privacidad. Puedes añadir un enlace a LinkedIn si lo deseas. -->
+                <a href="https://github.com/gjrodriguezcl" target="_blank">🐙 GitHub</a>
+                <!-- <a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a> -->
+            </div>
+
+            <div class="qr-container">
+                <!-- Este QR se genera automáticamente con la URL de tu página -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://gjrodriguezcl.github.io/" alt="Código QR a mi portafolio">
+                <p>Escanea para ver mi portafolio completo</p>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.8rem;">Hecho con 💻 y ☕· 2026</p>
         </footer>
 
     </div>
