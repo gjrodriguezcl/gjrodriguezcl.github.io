@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gilberto José Rodríguez Peña | Técnico en Informática & Soporte</title>
 
-    <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,16 +16,17 @@
             --accent-color: #0056b3;
             --accent-hover: #003d82;
         }
+        [data-bs-theme="dark"] {
+            --accent-color: #4d9fff;
+            --accent-hover: #77b3ff;
+        }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            /* Compensa el navbar fijo al hacer scroll a las secciones */
             scroll-behavior: smooth;
+            transition: background-color .3s ease, color .3s ease;
         }
 
-        /* Scrollspy offset para que no quede tapado por el navbar */
         section[id] {
             scroll-margin-top: 80px;
             padding-top: 1rem;
@@ -38,60 +36,87 @@
             font-weight: 700;
             color: var(--accent-color) !important;
         }
-
         .navbar .nav-link {
             font-weight: 500;
-            color: #495057;
             border-bottom: 2px solid transparent;
             transition: all .2s ease;
         }
-
-        .navbar .nav-link:hover {
-            color: var(--accent-color);
-        }
-
+        .navbar .nav-link:hover { color: var(--accent-color); }
         .navbar .nav-link.active {
             color: var(--accent-color) !important;
             border-bottom: 2px solid var(--accent-color);
             font-weight: 600;
         }
 
+        #themeToggle {
+            border: none;
+            background: transparent;
+            font-size: 1.2rem;
+            color: inherit;
+            cursor: pointer;
+            padding: .4rem .6rem;
+            border-radius: 6px;
+            transition: background-color .2s;
+        }
+        #themeToggle:hover { background-color: rgba(0,0,0,.08); }
+        [data-bs-theme="dark"] #themeToggle:hover { background-color: rgba(255,255,255,.1); }
+
         header.hero {
             background: linear-gradient(135deg, #ffffff 0%, #eef3f9 100%);
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid var(--bs-border-color);
             padding: 4rem 1rem 3rem;
-            text-align: center;
+        }
+        [data-bs-theme="dark"] header.hero {
+            background: linear-gradient(135deg, #1a1d21 0%, #23272b 100%);
         }
 
-        header.hero h1 {
+        .hero-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,.15);
+            background: var(--bs-body-bg);
+        }
+
+        /* Avatar de respaldo con iniciales, sin imágenes externas */
+        .hero-photo-fallback {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,.15);
+            background: var(--accent-color);
+            color: #fff;
+            font-size: 3rem;
             font-weight: 700;
-            font-size: 2.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
 
         .section-title {
             font-weight: 600;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid var(--bs-border-color);
             padding-bottom: .5rem;
             margin-bottom: 1.5rem;
         }
 
         .card {
-            border: 1px solid #dee2e6;
             border-radius: 10px;
             transition: transform .2s, box-shadow .2s;
         }
-
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.1);
         }
-
         .card h5 {
             color: var(--accent-color);
             font-weight: 600;
         }
-
-        .card img {
+        .card img.app-img {
             border-radius: 8px;
             width: 100%;
             height: 180px;
@@ -100,8 +125,8 @@
         }
 
         .tech-tag {
-            background-color: #e9ecef;
-            color: #495057;
+            background-color: var(--bs-secondary-bg);
+            color: var(--bs-secondary-color);
             font-size: .75rem;
             font-weight: 500;
             padding: .2rem .7rem;
@@ -123,41 +148,84 @@
         .qr-container img {
             width: 130px;
             height: 130px;
-            border: 1px solid #dee2e6;
+            border: 1px solid var(--bs-border-color);
             border-radius: 8px;
             padding: 5px;
             background: #fff;
         }
 
-        footer {
-            border-top: 1px solid #dee2e6;
-            color: #6c757d;
-            font-size: .9rem;
+        footer { border-top: 1px solid var(--bs-border-color); }
+
+        /* Bloque de contacto sin formulario */
+        .contact-card {
+            text-align: center;
+            padding: 2rem 1rem;
         }
+        .contact-card .bi-envelope-paper {
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+        .email-box {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--bs-secondary-bg);
+            padding: .6rem 1rem;
+            border-radius: 8px;
+            font-family: ui-monospace, monospace;
+            font-size: .95rem;
+            border: 1px solid var(--bs-border-color);
+            margin-top: .5rem;
+        }
+        .copy-btn {
+            border: none;
+            background: transparent;
+            color: var(--accent-color);
+            cursor: pointer;
+            padding: .2rem .4rem;
+            border-radius: 4px;
+        }
+        .copy-btn:hover { background: rgba(0,86,179,.1); }
+        .copy-feedback {
+            font-size: .85rem;
+            color: #198754;
+            margin-left: .3rem;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .copy-feedback.show { opacity: 1; }
 
         @media (max-width: 600px) {
-            header.hero h1 { font-size: 2rem; }
+            .hero-photo, .hero-photo-fallback { width: 110px; height: 110px; font-size: 2.2rem; }
         }
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
 
-    <!-- NAVBAR con Scrollspy -->
-    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <!-- NAVBAR -->
+    <nav id="mainNav" class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#top">GJ Rodríguez</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
-                    aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navContent">
+
+            <div class="d-flex align-items-center order-lg-3">
+                <button id="themeToggle" title="Cambiar tema" aria-label="Cambiar tema">
+                    <i class="bi bi-moon-stars" id="themeIcon"></i>
+                </button>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+                        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-2" id="navContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="#mis-apps">Mis Apps</a></li>
                     <li class="nav-item"><a class="nav-link" href="#mis-trabajos">Mis trabajos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#j-roddherz">J Roddherz</a></li>
                     <li class="nav-item"><a class="nav-link" href="#joyxxer">Joyxxer</a></li>
                     <li class="nav-item"><a class="nav-link" href="#otros">Otros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -165,16 +233,50 @@
 
     <!-- HERO -->
     <header class="hero" id="top">
-        <div class="container">
-            <h1>Gilberto José Rodríguez Peña</h1>
-            <p class="lead text-secondary mb-3">
+        <div class="container text-center">
+            <!--
+                👇 OPCIÓN A: Si tienes la URL directa de tu foto, descomenta y pega aquí.
+                Para obtenerla: abre tu perfil de LinkedIn → clic derecho sobre tu foto →
+                "Copiar dirección de imagen" → pégala en el src.
+            -->
+            <!--
+            <img src="URL_DE_TU_FOTO_AQUI"
+                 alt="Foto de Gilberto José Rodríguez Peña"
+                 class="hero-photo mb-3">
+            -->
+
+            <!-- OPCIÓN B (por defecto): avatar con iniciales, 100% CSS, cero terceros -->
+            <div class="hero-photo-fallback mb-3" aria-label="Foto de Gilberto José Rodríguez Peña">GR</div>
+
+            <h1 class="fw-bold">Gilberto José Rodríguez Peña</h1>
+            <p class="lead text-secondary mb-4">
                 Técnico Superior en Informática | Especialista en Soporte y Atención al Cliente | Residente definitivo en Chile
             </p>
-            <a href="#mis-apps" class="btn btn-accent">Ver mis proyectos</a>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="#sobre-mi" class="btn btn-accent">
+                    <i class="bi bi-person-badge me-1"></i> Conóceme
+                </a>
+                <a href="https://github.com/gjrodriguezcl" target="_blank" class="btn btn-outline-secondary">
+                    <i class="bi bi-github me-1"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/gjrodriguezp/" target="_blank" class="btn btn-outline-primary">
+                    <i class="bi bi-linkedin me-1"></i> LinkedIn
+                </a>
+            </div>
         </div>
     </header>
 
     <main class="container my-5">
+
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi" class="mb-5">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="card p-4">
+                <p>Profesional con más de 15 años de experiencia en atención al cliente presencial, telefónica y remota; destacando por mi capacidad para generar confianza, resolver problemas con rapidez y mantener una comunicación clara y efectiva, incluso en situaciones de alta presión.</p>
+                <p>He trabajado en entornos de call center, retail, servicio al cliente especializado (clientes electrodependientes) y administración, lo que me ha permitido desarrollar una visión integral del ciclo de atención (desde la primera interacción hasta la gestión de reclamos, ventas, post-venta y seguimiento).</p>
+                <p class="mb-0">Soy una persona proactiva, empática y ordenada, con facilidad para adaptarme a distintos rubros y públicos. Mi formación técnica me otorga una ventaja adicional para comprender productos y servicios, en especial con componentes tecnológicos; y mi experiencia en reposición y caja me permite desempeñarme sin dificultad en entornos comerciales.</p>
+            </div>
+        </section>
 
         <!-- MIS APPS -->
         <section id="mis-apps" class="mb-5">
@@ -188,7 +290,7 @@
                             <span class="tech-tag">requests</span>
                             <span class="tech-tag">asyncio</span>
                         </div>
-                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/instagram-blocker/main/screenshots/main_window.png" alt="Instagram Blocker">
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/instagram-blocker/main/screenshots/main_window.png" alt="Instagram Blocker" class="app-img">
                         <p class="mt-3">Bloqueador de Instagram para Windows – controla el acceso modificando el archivo hosts del sistema.</p>
                         <a href="https://github.com/gjrodriguezcl/instagram-blocker" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
                     </div>
@@ -201,7 +303,7 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Turtle</span>
                         </div>
-                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/Turtle/refs/heads/main/screenshots/main_window.png" alt="Turtle">
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/Turtle/refs/heads/main/screenshots/main_window.png" alt="Turtle" class="app-img">
                         <p class="mt-3">Herramienta educativa para niños que enseña programación visual con Python y Turtle.</p>
                         <a href="https://github.com/gjrodriguezcl/Turtle" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
                     </div>
@@ -214,7 +316,7 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Gestión de Datos</span>
                         </div>
-                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda_personal/refs/heads/main/screenshots/main_window.png" alt="Agenda Personal">
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda_personal/refs/heads/main/screenshots/main_window.png" alt="Agenda Personal" class="app-img">
                         <p class="mt-3">Aplicación de gestión de tareas, eventos, cumpleaños y feriados con repeticiones y seguimiento.</p>
                         <a href="https://github.com/gjrodriguezcl/agenda_personal" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
                     </div>
@@ -227,7 +329,7 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">API Google</span>
                         </div>
-                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar/refs/heads/main/screenshots/main_window.png" alt="Agenda con Google Calendar">
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar/refs/heads/main/screenshots/main_window.png" alt="Agenda con Google Calendar" class="app-img">
                         <p class="mt-3">App de escritorio con sincronización bidireccional a Google Calendar y notificaciones.</p>
                         <a href="https://github.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
                     </div>
@@ -301,13 +403,35 @@
             </div>
         </section>
 
-        <!-- SOBRE MÍ -->
-        <section id="sobre-mi" class="mb-5">
-            <h2 class="section-title">Sobre mí</h2>
-            <div class="card p-4">
-                <p>Profesional con más de 15 años de experiencia en atención al cliente presencial, telefónica y remota; destacando por mi capacidad para generar confianza, resolver problemas con rapidez y mantener una comunicación clara y efectiva, incluso en situaciones de alta presión.</p>
-                <p>He trabajado en entornos de call center, retail, servicio al cliente especializado (clientes electrodependientes) y administración, lo que me ha permitido desarrollar una visión integral del ciclo de atención (desde la primera interacción hasta la gestión de reclamos, ventas, post-venta y seguimiento).</p>
-                <p class="mb-0">Soy una persona proactiva, empática y ordenada, con facilidad para adaptarme a distintos rubros y públicos. Mi formación técnica me otorga una ventaja adicional para comprender productos y servicios, en especial con componentes tecnológicos; y mi experiencia en reposición y caja me permite desempeñarme sin dificultad en entornos comerciales.</p>
+        <!-- CONTACTO (sin formulario, sin terceros) -->
+        <section id="contacto" class="mb-5">
+            <h2 class="section-title">Contacto</h2>
+            <div class="card contact-card">
+                <i class="bi bi-envelope-paper mb-3"></i>
+                <h5 class="mb-2">¿Hablamos?</h5>
+                <p class="text-secondary mb-3">
+                    Escríbeme directamente a mi correo o encuéntrame en LinkedIn y GitHub.
+                </p>
+
+                <!--
+                    👇 CAMBIA el correo de abajo por el tuyo real (dos veces: en href y en el texto).
+                -->
+                <div class="email-box">
+                    <span id="emailText">tu.correo@ejemplo.com</span>
+                    <button class="copy-btn" onclick="copiarEmail()" title="Copiar correo">
+                        <i class="bi bi-clipboard"></i>
+                    </button>
+                    <span class="copy-feedback" id="copyMsg">¡Copiado!</span>
+                </div>
+
+                <div class="d-flex justify-content-center gap-2 mt-4 flex-wrap">
+                    <a href="https://github.com/gjrodriguezcl" target="_blank" class="btn btn-outline-secondary">
+                        <i class="bi bi-github me-1"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/gjrodriguezp/" target="_blank" class="btn btn-outline-primary">
+                        <i class="bi bi-linkedin me-1"></i> LinkedIn
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -321,9 +445,9 @@
                 <a href="https://github.com/gjrodriguezcl" target="_blank" class="text-decoration-none me-3 fw-semibold" style="color: var(--accent-color);">
                     <i class="bi bi-github"></i> GitHub
                 </a>
-                <!-- <a href="https://linkedin.com/in/tuusuario" target="_blank" class="text-decoration-none fw-semibold" style="color: var(--accent-color);">
+                <a href="https://www.linkedin.com/in/gjrodriguezp/" target="_blank" class="text-decoration-none fw-semibold" style="color: var(--accent-color);">
                     <i class="bi bi-linkedin"></i> LinkedIn
-                </a> -->
+                </a>
             </div>
 
             <div class="qr-container d-flex flex-column align-items-center gap-2 my-3">
@@ -335,11 +459,11 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle (incluye Popper) -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Refrescar Scrollspy al cargar para posicionar bien el active -->
     <script>
+        // --- Refrescar Scrollspy al cargar ---
         window.addEventListener('load', () => {
             const spy = bootstrap.ScrollSpy.getInstance(document.body) || new bootstrap.ScrollSpy(document.body, {
                 target: '#mainNav',
@@ -347,6 +471,64 @@
             });
             spy.refresh();
         });
+
+        // --- Modo oscuro con persistencia ---
+        (function () {
+            const html = document.documentElement;
+            const toggle = document.getElementById('themeToggle');
+            const icon = document.getElementById('themeIcon');
+
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                html.setAttribute('data-bs-theme', 'dark');
+                icon.classList.replace('bi-moon-stars', 'bi-sun');
+            }
+            if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.setAttribute('data-bs-theme', 'dark');
+                icon.classList.replace('bi-moon-stars', 'bi-sun');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isDark = html.getAttribute('data-bs-theme') === 'dark';
+                const newTheme = isDark ? 'light' : 'dark';
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                icon.classList.toggle('bi-moon-stars', !isDark);
+                icon.classList.toggle('bi-sun', isDark);
+            });
+        })();
+
+        // --- Copiar correo al portapapeles (sin terceros) ---
+        function copiarEmail() {
+            const texto = document.getElementById('emailText').textContent.trim();
+            const msg = document.getElementById('copyMsg');
+
+            const mostrarFeedback = () => {
+                msg.classList.add('show');
+                setTimeout(() => msg.classList.remove('show'), 1800);
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(texto).then(mostrarFeedback).catch(() => {
+                    fallbackCopiar(texto);
+                    mostrarFeedback();
+                });
+            } else {
+                fallbackCopiar(texto);
+                mostrarFeedback();
+            }
+        }
+
+        function fallbackCopiar(texto) {
+            const ta = document.createElement('textarea');
+            ta.value = texto;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+        }
     </script>
 </body>
 </html>
