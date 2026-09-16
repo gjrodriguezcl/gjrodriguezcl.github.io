@@ -3,333 +3,350 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gilberto José Rodríguez Peña | Técnico en Informática & Especialista en Soporte</title>
-    <!-- Importar fuente Inter desde Google Fonts -->
+    <title>Gilberto José Rodríguez Peña | Técnico en Informática & Soporte</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-primary: #212529;
-            --text-secondary: #495057;
-            --text-muted: #6c757d;
             --accent-color: #0056b3;
             --accent-hover: #003d82;
-            --border-color: #dee2e6;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            background-color: #f8f9fa;
+            color: #212529;
+            /* Compensa el navbar fijo al hacer scroll a las secciones */
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* Scrollspy offset para que no quede tapado por el navbar */
+        section[id] {
+            scroll-margin-top: 80px;
+            padding-top: 1rem;
         }
 
-        /* --- Header --- */
-        header {
-            text-align: center;
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        .navbar-brand {
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--accent-color) !important;
         }
 
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
+        .navbar .nav-link {
             font-weight: 500;
-            max-width: 700px;
-            margin: 0 auto;
+            color: #495057;
+            border-bottom: 2px solid transparent;
+            transition: all .2s ease;
         }
 
-        .header-actions {
-            margin-top: 1.5rem;
+        .navbar .nav-link:hover {
+            color: var(--accent-color);
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* --- Sections --- */
-        .section {
-            margin: 3rem 0;
-        }
-
-        .section h2 {
-            font-size: 1.6rem;
+        .navbar .nav-link.active {
+            color: var(--accent-color) !important;
+            border-bottom: 2px solid var(--accent-color);
             font-weight: 600;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
+        }
+
+        header.hero {
+            background: linear-gradient(135deg, #ffffff 0%, #eef3f9 100%);
+            border-bottom: 1px solid #dee2e6;
+            padding: 4rem 1rem 3rem;
+            text-align: center;
+        }
+
+        header.hero h1 {
+            font-weight: 700;
+            font-size: 2.6rem;
+        }
+
+        .section-title {
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: .5rem;
             margin-bottom: 1.5rem;
         }
 
-        /* --- Cards --- */
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            transition: transform .2s, box-shadow .2s;
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.1);
         }
 
-        .card h3 {
+        .card h5 {
             color: var(--accent-color);
-            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.2rem;
         }
 
-        .card .meta {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 0.8rem;
-        }
-
-        .card ul li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.4rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .card ul li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* --- Technologies Tags --- */
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
+        .card img {
+            border-radius: 8px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #f1f3f5;
         }
 
         .tech-tag {
             background-color: #e9ecef;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
+            color: #495057;
+            font-size: .75rem;
             font-weight: 500;
-            padding: 0.2rem 0.7rem;
+            padding: .2rem .7rem;
             border-radius: 20px;
+            display: inline-block;
+            margin: .1rem .2rem .1rem 0;
         }
 
-        /* --- Grid for Projects/Skills --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
         }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .contact-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin: 0 0.8rem;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-
-        .contact-links a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        .qr-container {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
         }
 
         .qr-container img {
-            width: 120px;
-            height: 120px;
-            border: 1px solid var(--border-color);
+            width: 130px;
+            height: 130px;
+            border: 1px solid #dee2e6;
             border-radius: 8px;
             padding: 5px;
             background: #fff;
         }
 
-        .qr-container p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        footer {
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: .9rem;
         }
 
-        /* --- Responsive --- */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .container {
-                padding: 0 0.5rem;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-            }
+            header.hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
 
-    <div class="container">
+    <!-- NAVBAR con Scrollspy -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#top">GJ Rodríguez</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+                    aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#mis-apps">Mis Apps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mis-trabajos">Mis trabajos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#j-roddherz">J Roddherz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#joyxxer">Joyxxer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#otros">Otros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <header>
+    <!-- HERO -->
+    <header class="hero" id="top">
+        <div class="container">
             <h1>Gilberto José Rodríguez Peña</h1>
-            <p class="subtitle">Técnico Superior en Informática | Especialista en Soporte y Atención al Cliente | Residente definitivo en Chile</p>
-        </header>
+            <p class="lead text-secondary mb-3">
+                Técnico Superior en Informática | Especialista en Soporte y Atención al Cliente | Residente definitivo en Chile
+            </p>
+            <a href="#mis-apps" class="btn btn-accent">Ver mis proyectos</a>
+        </div>
+    </header>
 
-        <!-- Sobre mí -->
-        <section class="section">
-            <h2>Sobre mí</h2>
-            <div class="card">
+    <main class="container my-5">
+
+        <!-- MIS APPS -->
+        <section id="mis-apps" class="mb-5">
+            <h2 class="section-title">Mis Apps</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 p-3">
+                        <h5>Instagram Blocker</h5>
+                        <div class="mb-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">requests</span>
+                            <span class="tech-tag">asyncio</span>
+                        </div>
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/instagram-blocker/main/screenshots/main_window.png" alt="Instagram Blocker">
+                        <p class="mt-3">Bloqueador de Instagram para Windows – controla el acceso modificando el archivo hosts del sistema.</p>
+                        <a href="https://github.com/gjrodriguezcl/instagram-blocker" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 p-3">
+                        <h5>Turtle</h5>
+                        <div class="mb-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Turtle</span>
+                        </div>
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/Turtle/refs/heads/main/screenshots/main_window.png" alt="Turtle">
+                        <p class="mt-3">Herramienta educativa para niños que enseña programación visual con Python y Turtle.</p>
+                        <a href="https://github.com/gjrodriguezcl/Turtle" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 p-3">
+                        <h5>Agenda Personal</h5>
+                        <div class="mb-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Gestión de Datos</span>
+                        </div>
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda_personal/refs/heads/main/screenshots/main_window.png" alt="Agenda Personal">
+                        <p class="mt-3">Aplicación de gestión de tareas, eventos, cumpleaños y feriados con repeticiones y seguimiento.</p>
+                        <a href="https://github.com/gjrodriguezcl/agenda_personal" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 p-3">
+                        <h5>Agenda Local + Google Calendar</h5>
+                        <div class="mb-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API Google</span>
+                        </div>
+                        <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar/refs/heads/main/screenshots/main_window.png" alt="Agenda con Google Calendar">
+                        <p class="mt-3">App de escritorio con sincronización bidireccional a Google Calendar y notificaciones.</p>
+                        <a href="https://github.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar" target="_blank" class="mt-auto text-decoration-none fw-semibold" style="color: var(--accent-color);">Ver repositorio →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIS TRABAJOS -->
+        <section id="mis-trabajos" class="mb-5">
+            <h2 class="section-title">Mis trabajos</h2>
+            <div class="card p-4">
+                <p>Más de <strong>15 años de experiencia</strong> en atención al cliente presencial, telefónica y remota, en entornos como:</p>
+                <ul>
+                    <li>Call center (soporte y post-venta)</li>
+                    <li>Retail y reposición de productos</li>
+                    <li>Atención a clientes electrodependientes</li>
+                    <li>Administración y gestión de reclamos</li>
+                </ul>
+                <p class="mb-0">Especializado en generar confianza, resolver problemas con rapidez y mantener comunicación clara bajo presión.</p>
+            </div>
+        </section>
+
+        <!-- J RODDHERZ -->
+        <section id="j-roddherz" class="mb-5">
+            <h2 class="section-title">J Roddherz</h2>
+            <div class="card p-4">
+                <p><strong>J Roddherz</strong> es mi identidad de marca personal en el ámbito tecnológico y creativo. Bajo este nombre desarrollo y publico mis proyectos en GitHub, incluyendo herramientas de automatización, apps educativas y soluciones de productividad.</p>
+                <p class="mb-0">Aquí concentro mi trabajo como desarrollador independiente, combinando mi formación técnica con la experiencia en servicio al cliente para crear herramientas útiles y accesibles.</p>
+            </div>
+        </section>
+
+        <!-- JOYXXER -->
+        <section id="joyxxer" class="mb-5">
+            <h2 class="section-title">Joyxxer</h2>
+            <div class="card p-4">
+                <p><strong>Joyxxer</strong> es mi alias en el mundo del gaming y comunidades digitales. Un espacio donde exploro tecnología, comparto aprendizajes y me mantengo activo en entornos colaborativos.</p>
+                <p class="mb-0">Si vienes del ámbito gamer o de comunidades tech, probablemente me reconozcas por este nombre.</p>
+            </div>
+        </section>
+
+        <!-- OTROS -->
+        <section id="otros" class="mb-5">
+            <h2 class="section-title">Otros</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h5><i class="bi bi-cpu me-2"></i>Habilidades técnicas</h5>
+                        <div>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Soporte TI</span>
+                            <span class="tech-tag">Windows</span>
+                            <span class="tech-tag">Google Workspace</span>
+                            <span class="tech-tag">Git / GitHub</span>
+                            <span class="tech-tag">Atención al cliente</span>
+                            <span class="tech-tag">Post-venta</span>
+                            <span class="tech-tag">Ventas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-4 h-100">
+                        <h5><i class="bi bi-lightbulb me-2"></i>Extras</h5>
+                        <ul class="mb-0">
+                            <li>Residente definitivo en Chile</li>
+                            <li>Disponibilidad para trabajo presencial o remoto</li>
+                            <li>Adaptabilidad a distintos rubros y públicos</li>
+                            <li>Comunicación clara y efectiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi" class="mb-5">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="card p-4">
                 <p>Profesional con más de 15 años de experiencia en atención al cliente presencial, telefónica y remota; destacando por mi capacidad para generar confianza, resolver problemas con rapidez y mantener una comunicación clara y efectiva, incluso en situaciones de alta presión.</p>
                 <p>He trabajado en entornos de call center, retail, servicio al cliente especializado (clientes electrodependientes) y administración, lo que me ha permitido desarrollar una visión integral del ciclo de atención (desde la primera interacción hasta la gestión de reclamos, ventas, post-venta y seguimiento).</p>
-                <p>Soy una persona proactiva, empática y ordenada, con facilidad para adaptarme a distintos rubros y públicos. Mi formación técnica me otorga una ventaja adicional para comprender distintos productos y servicios, en especial con componentes tecnológicos; y mi experiencia en reposición y caja me permite desempeñarme sin dificultad en entornos comerciales.</p>
+                <p class="mb-0">Soy una persona proactiva, empática y ordenada, con facilidad para adaptarme a distintos rubros y públicos. Mi formación técnica me otorga una ventaja adicional para comprender productos y servicios, en especial con componentes tecnológicos; y mi experiencia en reposición y caja me permite desempeñarme sin dificultad en entornos comerciales.</p>
             </div>
         </section>
 
-        <!-- Proyectos -->
-        <section class="section">
-            <h2>Proyectos Personales:</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Instagram Blocker</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">requests</span>
-                        <span class="tech-tag">asyncio</span>
-                    </div>
-                    <img src="https://raw.githubusercontent.com/gjrodriguezcl/instagram-blocker/main/screenshots/main_window.png" alt="Instagram Blocker" style="width: 100%; border-radius: 6px; margin: 0.8rem 0;">
-                    <p>Bloqueador de Instagram para Windows – Una herramienta sencilla y efectiva para controlar el acceso a Instagram modificando el archivo hosts del sistema.</p>
-                    <a href="https://github.com/gjrodriguezcl/instagram-blocker" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
-                </div>
+    </main>
 
-                <div class="card">
-                    <h3>Turtle</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Turtle</span>
-                    </div>
-                    <img src="https://raw.githubusercontent.com/gjrodriguezcl/Turtle/refs/heads/main/screenshots/main_window.png" alt="Turtle" style="width: 100%; border-radius: 6px; margin: 0.8rem 0;">
-                    <p>Herramienta educativa para niños que enseña programación visual usando Python y Turtle. Con comandos simples en español, los niños pueden dibujar, colorear y crear animaciones.</p>
-                    <a href="https://github.com/gjrodriguezcl/Turtle" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
-                </div>
-
-                <div class="card">
-                    <h3>Agenda Personal</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Gestión de Datos</span>
-                    </div>
-                    <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda_personal/refs/heads/main/screenshots/main_window.png" alt="Agenda Personal" style="width: 100%; border-radius: 6px; margin: 0.8rem 0;">
-                    <p>Una aplicación de gestión de agenda desarrollada en Python que permite administrar tareas, eventos, cumpleaños y feriados con soporte para repeticiones y seguimiento de progreso.</p>
-                    <a href="https://github.com/gjrodriguezcl/agenda_personal" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
-                </div>
-
-                <div class="card">
-                    <h3>Agenda Local con Sincronización a Google Agenda</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Gestión de Datos</span>
-                    </div>
-                    <img src="https://raw.githubusercontent.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar/refs/heads/main/screenshots/main_window.png" alt="Agenda Local con Sincronización a Google Agenda" style="width: 100%; border-radius: 6px; margin: 0.8rem 0;">
-                    <p>Aplicación de escritorio desarrollada en Python para gestionar tareas, eventos, cumpleaños y feriados, con sincronización bidireccional a Google Calendar y notificaciones de escritorio.</p>
-                    <a href="https://github.com/gjrodriguezcl/agenda-local-sincronizada-con-google-calendar" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">Ver repositorio →</a>
-                </div>
-                
-            </div>
-        </section>
-
-        <!-- Footer con contacto y QR -->
-        <footer>
-            <p>¿Hablamos?</p>
-            <div class="contact-links" style="margin-top: 1rem;">
-                <!-- He eliminado el email y teléfono por privacidad. Puedes añadir un enlace a LinkedIn si lo deseas. -->
-                <a href="https://github.com/gjrodriguezcl" target="_blank">🐙 GitHub</a>
-                <!-- <a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a> -->
+    <!-- FOOTER -->
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">¿Hablamos?</p>
+            <div class="mb-3">
+                <a href="https://github.com/gjrodriguezcl" target="_blank" class="text-decoration-none me-3 fw-semibold" style="color: var(--accent-color);">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+                <!-- <a href="https://linkedin.com/in/tuusuario" target="_blank" class="text-decoration-none fw-semibold" style="color: var(--accent-color);">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a> -->
             </div>
 
-            <div class="qr-container">
-                <!-- Este QR se genera automáticamente con la URL de tu página -->
+            <div class="qr-container d-flex flex-column align-items-center gap-2 my-3">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://gjrodriguezcl.github.io/" alt="Código QR a mi portafolio">
-                <p>Escanea para ver mi portafolio completo</p>
+                <p class="mb-0">Escanea para ver mi portafolio completo</p>
             </div>
 
-            <p style="margin-top: 2rem; font-size: 0.8rem;">Hecho con 💻 y ☕· 2026</p>
-        </footer>
+            <p class="mb-0 small">Hecho con <i class="bi bi-laptop"></i> y <i class="bi bi-cup-hot"></i> · 2026</p>
+        </div>
+    </footer>
 
-    </div>
+    <!-- Bootstrap JS Bundle (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Refrescar Scrollspy al cargar para posicionar bien el active -->
+    <script>
+        window.addEventListener('load', () => {
+            const spy = bootstrap.ScrollSpy.getInstance(document.body) || new bootstrap.ScrollSpy(document.body, {
+                target: '#mainNav',
+                offset: 80
+            });
+            spy.refresh();
+        });
+    </script>
 </body>
 </html>
