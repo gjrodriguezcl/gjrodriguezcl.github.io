@@ -80,7 +80,6 @@
             background: var(--bs-body-bg);
         }
 
-        /* Avatar de respaldo con iniciales, sin imágenes externas */
         .hero-photo-fallback {
             width: 140px;
             height: 140px;
@@ -156,7 +155,19 @@
 
         footer { border-top: 1px solid var(--bs-border-color); }
 
-        /* Bloque de contacto sin formulario */
+        /* Plataformas musicales */
+        .music-platform-card {
+            min-height: 100px;
+        }
+        .music-platform-card i {
+            font-size: 1.8rem;
+        }
+        .music-platform-card .label {
+            font-weight: 600;
+            color: var(--bs-body-color);
+        }
+
+        /* Contacto sin formulario */
         .contact-card {
             text-align: center;
             padding: 2rem 1rem;
@@ -223,7 +234,6 @@
                     <li class="nav-item"><a class="nav-link" href="#mis-apps">Mis Apps</a></li>
                     <li class="nav-item"><a class="nav-link" href="#mis-trabajos">Mis trabajos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#j-roddherz">J Roddherz</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#joyxxer">Joyxxer</a></li>
                     <li class="nav-item"><a class="nav-link" href="#otros">Otros</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
@@ -235,18 +245,15 @@
     <header class="hero" id="top">
         <div class="container text-center">
             <!--
-                👇 OPCIÓN A: Si tienes la URL directa de tu foto, descomenta y pega aquí.
-                Para obtenerla: abre tu perfil de LinkedIn → clic derecho sobre tu foto →
-                "Copiar dirección de imagen" → pégala en el src.
+                👇 Sube tu foto al repo con el nombre "perfil.jpg" (o cambia la ruta aquí).
+                Si no carga, se muestra automáticamente el avatar con iniciales "GJ".
             -->
-            <!--
-            <img src="URL_DE_TU_FOTO_AQUI"
+            <img src="perfil.jpg"
                  alt="Foto de Gilberto José Rodríguez Peña"
-                 class="hero-photo mb-3">
-            -->
+                 class="hero-photo mb-3"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 
-            <!-- OPCIÓN B (por defecto): avatar con iniciales, 100% CSS, cero terceros -->
-            <div class="hero-photo-fallback mb-3" aria-label="Foto de Gilberto José Rodríguez Peña">GR</div>
+            <div class="hero-photo-fallback mb-3" style="display: none;">GJ</div>
 
             <h1 class="fw-bold">Gilberto José Rodríguez Peña</h1>
             <p class="lead text-secondary mb-4">
@@ -355,18 +362,75 @@
         <!-- J RODDHERZ -->
         <section id="j-roddherz" class="mb-5">
             <h2 class="section-title">J Roddherz</h2>
-            <div class="card p-4">
-                <p><strong>J Roddherz</strong> es mi identidad de marca personal en el ámbito tecnológico y creativo. Bajo este nombre desarrollo y publico mis proyectos en GitHub, incluyendo herramientas de automatización, apps educativas y soluciones de productividad.</p>
-                <p class="mb-0">Aquí concentro mi trabajo como desarrollador independiente, combinando mi formación técnica con la experiencia en servicio al cliente para crear herramientas útiles y accesibles.</p>
-            </div>
-        </section>
 
-        <!-- JOYXXER -->
-        <section id="joyxxer" class="mb-5">
-            <h2 class="section-title">Joyxxer</h2>
-            <div class="card p-4">
-                <p><strong>Joyxxer</strong> es mi alias en el mundo del gaming y comunidades digitales. Un espacio donde exploro tecnología, comparto aprendizajes y me mantengo activo en entornos colaborativos.</p>
-                <p class="mb-0">Si vienes del ámbito gamer o de comunidades tech, probablemente me reconozcas por este nombre.</p>
+            <div class="card p-4 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-music-note-beamed me-2" style="font-size: 1.8rem; color: var(--accent-color);"></i>
+                    <h5 class="mb-0">DJ & Productor de Música Electrónica</h5>
+                </div>
+
+                <p>J Roddherz es mi proyecto artístico como DJ y productor de música electrónica. Comencé mi carrera como DJ en 2006, participando en discos móviles, eventos corporativos privados y clubes nocturnos nacionales, abarcando diversos géneros musicales.</p>
+                <p class="mb-3">Mi sonido transita por distintos estilos, siempre con una búsqueda de calidad y una identidad propia en cada sesión y producción.</p>
+
+                <div class="mb-2">
+                    <span class="tech-tag">House</span>
+                    <span class="tech-tag">Tech House</span>
+                    <span class="tech-tag">Deep House</span>
+                    <span class="tech-tag">Deep Tech</span>
+                    <span class="tech-tag">Techno</span>
+                    <span class="tech-tag">Others</span>
+                </div>
+            </div>
+
+            <h5 class="fw-semibold mb-3">
+                <i class="bi bi-headphones me-2"></i>Escúchame en:
+            </h5>
+
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg">
+                    <a href="https://www.beatport.com/es/artist/j-roddherz/543686"
+                       target="_blank"
+                       class="card music-platform-card p-3 text-center text-decoration-none h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-soundwave mb-2" style="color: #01ff95;"></i>
+                        <span class="label">Beatport</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <a href="https://open.spotify.com/intl-es/artist/5hpF3ylTPTLoMwDqgiy6is"
+                       target="_blank"
+                       class="card music-platform-card p-3 text-center text-decoration-none h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-spotify mb-2" style="color: #1DB954;"></i>
+                        <span class="label">Spotify</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <a href="https://music.apple.com/us/artist/j-roddherz/1093869254"
+                       target="_blank"
+                       class="card music-platform-card p-3 text-center text-decoration-none h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-apple mb-2" style="color: #FA243C;"></i>
+                        <span class="label">Apple Music</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <a href="https://www.amazon.com/music/player/artists/B01DNTEP2I/j-roddherz"
+                       target="_blank"
+                       class="card music-platform-card p-3 text-center text-decoration-none h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-amazon mb-2" style="color: #FF9900;"></i>
+                        <span class="label">Amazon Music</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <a href="https://soundcloud.com/jroddherz"
+                       target="_blank"
+                       class="card music-platform-card p-3 text-center text-decoration-none h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-soundwave mb-2" style="color: #FF5500;"></i>
+                        <span class="label">SoundCloud</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -414,7 +478,7 @@
                 </p>
 
                 <!--
-                    👇 CAMBIA el correo de abajo por el tuyo real (dos veces: en href y en el texto).
+                    👇 CAMBIA el correo de abajo por el tuyo real.
                 -->
                 <div class="email-box">
                     <span id="emailText">tu.correo@ejemplo.com</span>
@@ -498,7 +562,7 @@
             });
         })();
 
-        // --- Copiar correo al portapapeles (sin terceros) ---
+        // --- Copiar correo al portapapeles ---
         function copiarEmail() {
             const texto = document.getElementById('emailText').textContent.trim();
             const msg = document.getElementById('copyMsg');
